@@ -1,0 +1,876 @@
+@@ -0,0 +1,194 @@
+ +<!DOCTYPE html>
+ +<html>
+ +  <head>
+ +    <meta charset="utf-8">
+ +    <title>Refactor SASS 'A'</title>
+ +    <link rel="stylesheet" href="css/main.css">
+ +  </head>
+ +  <body>
+ +    <h1>Refactor SASS 'A'</h1>
+ +
+ +    <ol>
+ +      <li>Identify general code issues</li>
+ +      <li>Organize code.</li>
+ +      <li>Lint SASS</li>
+ +      <li>Use better class name conventions</li>
+ +      <li>Use better BEM</li>
+ +      <li>Identify BEM issues</li>
+ +      <li>Create SASS mixing to create BEM element and modifier</li>
+ +    </ol>
+ +    <hr>
+ +    <div class="container">
+ +      <section data-region="content">
+ +          <div class="widget">
+ +              <div class="help-topics">
+ +                  <div data-region="help">
+ +                      <div class="widget__header" data-region="help-header">
+ +                          <div class="text-center">
+ +                              <h2 class="text-capitalize">tkHelpTopics</h2>
+ +                              <div class="pull-right hidden-sm-down">
+ +                                  <ul class="list-unstyled list-inline list-inline--simple-list text-base normal">
+ +                                      <li>
+ +                                          <span class="inline-block text-capitalize push-right">tkPhoneContactEIS</span>
+ +                                          <a class="inline-block" data-href="tel:+1-877-953-1300">+1-877-953-1300</a>
+ +                                      </li>
+ +                                      <li class="text-capitalize"><a href="#help-contacts" class="btn btn--default" >View All</a></li>
+ +                                  </ul>
+ +                              </div>
+ +                          </div>
+ +                      </div>
+ +                      <div class="widget__content">
+ +                          <div data-region="topics-grid">
+ +                              <section data-container="articles">
+ +                                  <div>
+ +                                      <div class="full-width-sm-only">
+ +                                          <div class="cards-boxes" data-container="grid-row-view">
+ +                                              <div class="cards-boxes__item">
+ +                                                  <div class="w-100 help-topics__cards-wrapper">
+ +                                                      <div class="hidden-xs hidden-sm text-center">
+ +                                                          <h2 class="help-topics__title">tkGettingStarted</h2>
+ +                                                          <div class="text-base normal mt-sm">
+ +                                                              <a href="#" class="help-topics__link" data-id="Getting_Started|GetStarted_SubCat1|ccdea9b0-cfb7-47d3-8941-eba283a79264:en_US"
+ +                                                                 data-action="title">How_Do_I_Login</a>
+ +                                                          </div>
+ +                                                          <div class="text-base normal mt-sm">
+ +                                                              <a href="#" class="help-topics__link" data-id="Getting_Started|GetStarted_SubCat1|83643087-8ddd-468a-bd4c-d156323ae96c:en_US"
+ +                                                                 data-action="title">How_Do_I_Logoff</a>
+ +                                                          </div>
+ +                                                          <div class="text-base normal mt-sm">
+ +                                                              <a href="#" class="help-topics__link" data-id="Getting_Started|GetStarted_SubCat1|bdafc2bd-9293-450a-8c87-9bddc9f95fbe:en_US"
+ +                                                                 data-action="title">How_Do_I_View_My_Statements</a>
+ +                                                          </div>
+ +                                                          <div class=" pos-bottom help-topics__btn">
+ +                                                              <button class="btn btn-default half-width" data-action="all">
+ +                                                                  View All
+ +                                                              </button>
+ +                                                          </div>
+ +                                                      </div>
+ +                                                      <div data-action="all"
+ +                                                           class="visible-xs visible-sm list-group-item list-group-item--transparent cursor-pointer">
+ +                                                          <div class="row text-read">
+ +                                                              <div class="col-xs-10">
+ +                                                                  <a href="#">tkGettingStarted</a>
+ +                                                              </div>
+ +                                                              <div class="col-xs-2 text-right">
+ +                                                                  <i class="text-muted icon--square-arrow-right"></i>
+ +                                                              </div>
+ +                                                          </div>
+ +                                                      </div>
+ +
+ +                                                  </div>
+ +                                              </div>
+ +                                              <div class="col-md-4 col-xs-12 cards-boxes__item">
+ +                                                  <div class="w-100 help-topics__cards-wrapper">
+ +                                                      <div class="hidden-xs hidden-sm text-center">
+ +                                                          <h2 class="help-topics__title">Change password</h2>
+ +                                                          <div class="text-base normal mt-sm">
+ +                                                              <a href="#" class="help-topics__link" data-id="Change_Your_Password|ChangePass_Subcat1|f1443e78-975c-4173-9b8e-09fcc0579996:en_US"
+ +                                                                 data-action="title">How_Do_I_Change_Password</a>
+ +                                                          </div>
+ +                                                          <div class=" pos-bottom help-topics__btn">
+ +                                                              <button class="btn btn-default half-width" data-action="all">
+ +                                                                  View All
+ +                                                              </button>
+ +                                                          </div>
+ +                                                      </div>
+ +                                                      <div data-action="all"
+ +                                                           class="visible-xs visible-sm list-group-item list-group-item--transparent cursor-pointer">
+ +                                                          <div class="row text-read">
+ +                                                              <div class="col-xs-10">
+ +                                                                  <a href="#" >Change password</a>
+ +                                                              </div>
+ +                                                              <div class="col-xs-2 text-right">
+ +                                                                  <i class="text-muted icon--square-arrow-right"></i>
+ +                                                              </div>
+ +                                                          </div>
+ +                                                      </div>
+ +
+ +                                                  </div>
+ +                                              </div>
+ +                                              <div class="col-md-4 col-xs-12 cards-boxes__item">
+ +                                                  <div class="w-100 help-topics__cards-wrapper">
+ +                                                      <div class="hidden-xs hidden-sm text-center">
+ +                                                          <h2 class="help-topics__title">tkSwitchView</h2>
+ +                                                          <div class="text-base normal mt-sm">
+ +                                                              <a href="#" class="help-topics__link" data-id="Switch_Your_View|SwitchView_SubCat1|7e597eec-5049-4ab4-9903-e1b1f23b22bb:en_US"
+ +                                                                 data-action="title">How_Do_I_Switch_My_View</a>
+ +                                                          </div>
+ +                                                          <div class=" pos-bottom help-topics__btn">
+ +                                                              <button class="btn btn-default half-width" data-action="all">
+ +                                                                  View All
+ +                                                              </button>
+ +                                                          </div>
+ +                                                      </div>
+ +                                                      <div data-action="all"
+ +                                                           class="visible-xs visible-sm list-group-item list-group-item--transparent cursor-pointer">
+ +                                                          <div class="row text-read">
+ +                                                              <div class="col-xs-10">
+ +                                                                  <a href="#">tkSwitchView</a>
+ +                                                              </div>
+ +                                                              <div class="col-xs-2 text-right">
+ +                                                                  <i class="text-muted icon--square-arrow-right"></i>
+ +                                                              </div>
+ +                                                          </div>
+ +                                                      </div>
+ +
+ +                                                  </div>
+ +                                              </div>
+ +                                          </div>
+ +                                      </div>
+ +                                  </div>
+ +                              </section>
+ +                          </div>
+ +                      </div>
+ +                  </div>
+ +                  <div data-region="exception"></div>
+ +              </div>
+ +          </div>
+ +      </section>
+ +      <div id="help-contacts" data-region="contacts">
+ +          <section class="help-contacts widget">
+ +              <div class="help-topics">
+ +                  <div class="container-fluid">
+ +                      <div class="widget__header mb1" data-region="no-header">
+ +                          <h2 class="text-capitalize">Contact Technical Support</h2>
+ +                      </div>
+ +
+ +                      <div class="widget__content">
+ +                          <div class="row" data-region="content">
+ +                              <div class="col-md-6 col-xs-12 ">
+ +                                  <section data-region="left-side" class="cards-border__column">
+ +                                      <div data-container="article-row-view">
+ +
+ +                                          <div class="list-group-item list-group-item--transparent text-base text-read">
+ +                                              <div class=" row text-read">
+ +                                                  <div class="col-xs-6 text-base text-capitalize">
+ +                                                      tkPhoneContactUS
+ +                                                  </div>
+ +                                                  <div class="col-xs-6 text-base text-right">
+ +                                                      <a href="#" data-href="tel:+555-555-5555">555-555-5555</a>
+ +                                                  </div>
+ +                                              </div>
+ +                                          </div>
+ +                                          <div class="list-group-item list-group-item--transparent text-base text-read">
+ +                                              <div class=" row text-read">
+ +                                                  <div class="col-xs-6 text-base text-capitalize">
+ +                                                      tkPhoneContactEurope
+ +                                                  </div>
+ +                                                  <div class="col-xs-6 text-base text-right">
+ +                                                      <a href="#" data-href="tel:+555-555-5555">555-555-5555</a>
+ +                                                  </div>
+ +                                              </div>
+ +                                          </div>
+ +                                      </div>
+ +                                  </section>
+ +                              </div>
+ +                          </div>
+ +                      </div>
+ +                  </div>
+ +              </div>
+ +          </section>
+ +      </div>
+ +    </div>
+ +  </body>
+ +</html>
+642  css/main.css
+@@ -0,0 +1,642 @@
+ +/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
+ +/**
+ + * 1. Change the default font family in all browsers (opinionated).
+ + * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
+ + */
+ +html {
+ +  font-family: sans-serif;
+ +  /* 1 */
+ +  -ms-text-size-adjust: 100%;
+ +  /* 2 */
+ +  -webkit-text-size-adjust: 100%;
+ +  /* 2 */ }
+ +
+ +/**
+ + * Remove the margin in all browsers (opinionated).
+ + */
+ +body {
+ +  margin: 0; }
+ +
+ +/* HTML5 display definitions
+ +   ========================================================================== */
+ +/**
+ + * Add the correct display in IE 9-.
+ + * 1. Add the correct display in Edge, IE, and Firefox.
+ + * 2. Add the correct display in IE.
+ + */
+ +article,
+ +aside,
+ +details,
+ +figcaption,
+ +figure,
+ +footer,
+ +header,
+ +main,
+ +menu,
+ +nav,
+ +section,
+ +summary {
+ +  /* 1 */
+ +  display: block; }
+ +
+ +/**
+ + * Add the correct display in IE 9-.
+ + */
+ +audio,
+ +canvas,
+ +progress,
+ +video {
+ +  display: inline-block; }
+ +
+ +/**
+ + * Add the correct display in iOS 4-7.
+ + */
+ +audio:not([controls]) {
+ +  display: none;
+ +  height: 0; }
+ +
+ +/**
+ + * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ + */
+ +progress {
+ +  vertical-align: baseline; }
+ +
+ +/**
+ + * Add the correct display in IE 10-.
+ + * 1. Add the correct display in IE.
+ + */
+ +template,
+ +[hidden] {
+ +  display: none; }
+ +
+ +/* Links
+ +   ========================================================================== */
+ +/**
+ + * 1. Remove the gray background on active links in IE 10.
+ + * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ + */
+ +a {
+ +  background-color: transparent;
+ +  /* 1 */
+ +  -webkit-text-decoration-skip: objects;
+ +  /* 2 */ }
+ +
+ +/**
+ + * Remove the outline on focused links when they are also active or hovered
+ + * in all browsers (opinionated).
+ + */
+ +a:active,
+ +a:hover {
+ +  outline-width: 0; }
+ +
+ +/* Text-level semantics
+ +   ========================================================================== */
+ +/**
+ + * 1. Remove the bottom border in Firefox 39-.
+ + * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ + */
+ +abbr[title] {
+ +  border-bottom: none;
+ +  /* 1 */
+ +  text-decoration: underline;
+ +  /* 2 */
+ +  text-decoration: underline dotted;
+ +  /* 2 */ }
+ +
+ +/**
+ + * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ + */
+ +b,
+ +strong {
+ +  font-weight: inherit; }
+ +
+ +/**
+ + * Add the correct font weight in Chrome, Edge, and Safari.
+ + */
+ +b,
+ +strong {
+ +  font-weight: bolder; }
+ +
+ +/**
+ + * Add the correct font style in Android 4.3-.
+ + */
+ +dfn {
+ +  font-style: italic; }
+ +
+ +/**
+ + * Correct the font size and margin on `h1` elements within `section` and
+ + * `article` contexts in Chrome, Firefox, and Safari.
+ + */
+ +h1 {
+ +  font-size: 2em;
+ +  margin: 0.67em 0; }
+ +
+ +/**
+ + * Correct the line-height for all headings in Chrome mobile, Firefox,
+ + * iOS Safari, Microsoft Edge and IE.
+ + */
+ +h1,
+ +h2,
+ +h3,
+ +h4,
+ +h5,
+ +h6 {
+ +  line-height: 1.15; }
+ +
+ +/**
+ + * Add the correct background and color in IE 9-.
+ + */
+ +mark {
+ +  background-color: #ff0;
+ +  color: #000; }
+ +
+ +/**
+ + * Add the correct font size in all browsers.
+ + */
+ +small {
+ +  font-size: 80%; }
+ +
+ +/**
+ + * Prevent `sub` and `sup` elements from affecting the line height in
+ + * all browsers.
+ + */
+ +sub,
+ +sup {
+ +  font-size: 75%;
+ +  line-height: 0;
+ +  position: relative;
+ +  vertical-align: baseline; }
+ +
+ +sub {
+ +  bottom: -0.25em; }
+ +
+ +sup {
+ +  top: -0.5em; }
+ +
+ +/* Embedded content
+ +   ========================================================================== */
+ +/**
+ + * Remove the border on images inside links in IE 10-.
+ + */
+ +img {
+ +  border-style: none; }
+ +
+ +/**
+ + * Hide the overflow in IE.
+ + */
+ +svg:not(:root) {
+ +  overflow: hidden; }
+ +
+ +/* Grouping content
+ +   ========================================================================== */
+ +/**
+ + * 1. Correct the inheritance and scaling of font size in all browsers.
+ + * 2. Correct the odd `em` font sizing in all browsers.
+ + */
+ +code,
+ +kbd,
+ +pre,
+ +samp {
+ +  font-family: monospace, monospace;
+ +  /* 1 */
+ +  font-size: 1em;
+ +  /* 2 */ }
+ +
+ +/**
+ + * Add the correct margin in IE 8.
+ + */
+ +figure {
+ +  margin: 1em 40px; }
+ +
+ +/**
+ + * 1. Add the correct box sizing in Firefox.
+ + * 2. Show the overflow in Edge and IE.
+ + */
+ +hr {
+ +  box-sizing: content-box;
+ +  /* 1 */
+ +  height: 0;
+ +  /* 1 */
+ +  overflow: visible;
+ +  /* 2 */ }
+ +
+ +/* Forms
+ +   ========================================================================== */
+ +/**
+ + * 1. Change font properties to `inherit` in all browsers (opinionated).
+ + * 2. Remove the margin in Firefox and Safari.
+ + */
+ +button,
+ +input,
+ +optgroup,
+ +select,
+ +textarea {
+ +  font: inherit;
+ +  /* 1 */
+ +  margin: 0;
+ +  /* 2 */ }
+ +
+ +/**
+ + * Restore the font weight unset by the previous rule.
+ + */
+ +optgroup {
+ +  font-weight: bold; }
+ +
+ +/**
+ + * Show the overflow in IE.
+ + * 1. Show the overflow in Edge.
+ + */
+ +button,
+ +input {
+ +  /* 1 */
+ +  overflow: visible; }
+ +
+ +/**
+ + * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ + * 1. Remove the inheritance of text transform in Firefox.
+ + */
+ +button,
+ +select {
+ +  /* 1 */
+ +  text-transform: none; }
+ +
+ +/**
+ + * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ + *    controls in Android 4.
+ + * 2. Correct the inability to style clickable types in iOS and Safari.
+ + */
+ +button,
+ +html [type="button"],
+ +[type="reset"],
+ +[type="submit"] {
+ +  -webkit-appearance: button;
+ +  /* 2 */ }
+ +
+ +/**
+ + * Remove the inner border and padding in Firefox.
+ + */
+ +button::-moz-focus-inner,
+ +[type="button"]::-moz-focus-inner,
+ +[type="reset"]::-moz-focus-inner,
+ +[type="submit"]::-moz-focus-inner {
+ +  border-style: none;
+ +  padding: 0; }
+ +
+ +/**
+ + * Restore the focus styles unset by the previous rule.
+ + */
+ +button:-moz-focusring,
+ +[type="button"]:-moz-focusring,
+ +[type="reset"]:-moz-focusring,
+ +[type="submit"]:-moz-focusring {
+ +  outline: 1px dotted ButtonText; }
+ +
+ +/**
+ + * Change the border, margin, and padding in all browsers (opinionated).
+ + */
+ +fieldset {
+ +  border: 1px solid #c0c0c0;
+ +  margin: 0 2px;
+ +  padding: 0.35em 0.625em 0.75em; }
+ +
+ +/**
+ + * 1. Correct the text wrapping in Edge and IE.
+ + * 2. Correct the color inheritance from `fieldset` elements in IE.
+ + * 3. Remove the padding so developers are not caught out when they zero out
+ + *    `fieldset` elements in all browsers.
+ + */
+ +legend {
+ +  box-sizing: border-box;
+ +  /* 1 */
+ +  color: inherit;
+ +  /* 2 */
+ +  display: table;
+ +  /* 1 */
+ +  max-width: 100%;
+ +  /* 1 */
+ +  padding: 0;
+ +  /* 3 */
+ +  white-space: normal;
+ +  /* 1 */ }
+ +
+ +/**
+ + * Remove the default vertical scrollbar in IE.
+ + */
+ +textarea {
+ +  overflow: auto; }
+ +
+ +/**
+ + * 1. Add the correct box sizing in IE 10-.
+ + * 2. Remove the padding in IE 10-.
+ + */
+ +[type="checkbox"],
+ +[type="radio"] {
+ +  box-sizing: border-box;
+ +  /* 1 */
+ +  padding: 0;
+ +  /* 2 */ }
+ +
+ +/**
+ + * Correct the cursor style of increment and decrement buttons in Chrome.
+ + */
+ +[type="number"]::-webkit-inner-spin-button,
+ +[type="number"]::-webkit-outer-spin-button {
+ +  height: auto; }
+ +
+ +/**
+ + * 1. Correct the odd appearance in Chrome and Safari.
+ + * 2. Correct the outline style in Safari.
+ + */
+ +[type="search"] {
+ +  -webkit-appearance: textfield;
+ +  /* 1 */
+ +  outline-offset: -2px;
+ +  /* 2 */ }
+ +
+ +/**
+ + * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.
+ + */
+ +[type="search"]::-webkit-search-cancel-button,
+ +[type="search"]::-webkit-search-decoration {
+ +  -webkit-appearance: none; }
+ +
+ +/**
+ + * Correct the text style of placeholders in Chrome, Edge, and Safari.
+ + */
+ +::-webkit-input-placeholder {
+ +  color: inherit;
+ +  opacity: 0.54; }
+ +
+ +/**
+ + * 1. Correct the inability to style clickable types in iOS and Safari.
+ + * 2. Change font properties to `inherit` in Safari.
+ + */
+ +::-webkit-file-upload-button {
+ +  -webkit-appearance: button;
+ +  /* 1 */
+ +  font: inherit;
+ +  /* 2 */ }
+ +
+ +.card--btn {
+ +  bottom: 30px;
+ +  left: 0;
+ +  position: absolute;
+ +  right: 0; }
+ +
+ +.btn {
+ +  background-image: none;
+ +  border: 1px solid transparent;
+ +  border-radius: 4px;
+ +  color: inherit;
+ +  cursor: pointer;
+ +  display: inline-block;
+ +  font-size: 14px;
+ +  font-weight: 400;
+ +  line-height: 1.42857143;
+ +  margin: 10px 0;
+ +  padding: 6px 12px;
+ +  text-align: center;
+ +  text-decoration: none;
+ +  touch-action: manipulation;
+ +  vertical-align: middle;
+ +  white-space: nowrap; }
+ +  .btn--default {
+ +    background: #d0d6dc; }
+ +
+ +.m-5 {
+ +  margin: 5px; }
+ +
+ +.m-10 {
+ +  margin: 10px; }
+ +
+ +.m-15 {
+ +  margin: 15px; }
+ +
+ +.m-20 {
+ +  margin: 20px; }
+ +
+ +.m-25 {
+ +  margin: 25px; }
+ +
+ +.m-30 {
+ +  margin: 30px; }
+ +
+ +.m-80 {
+ +  margin: 80px; }
+ +
+ +.mb-5 {
+ +  margin-bottom: 5px; }
+ +
+ +.mb-10 {
+ +  margin-bottom: 10px; }
+ +
+ +.mb-15 {
+ +  margin-bottom: 15px; }
+ +
+ +.mb-20 {
+ +  margin-bottom: 20px; }
+ +
+ +.mb-25 {
+ +  margin-bottom: 25px; }
+ +
+ +.mb-30 {
+ +  margin-bottom: 30px; }
+ +
+ +.mb-80 {
+ +  margin-bottom: 80px; }
+ +
+ +.mr-5 {
+ +  margin-right: 5px; }
+ +
+ +.mr-10 {
+ +  margin-right: 10px; }
+ +
+ +.mr-15 {
+ +  margin-right: 15px; }
+ +
+ +.mr-20 {
+ +  margin-right: 20px; }
+ +
+ +.mr-25 {
+ +  margin-right: 25px; }
+ +
+ +.mr-30 {
+ +  margin-right: 30px; }
+ +
+ +.mr-80 {
+ +  margin-right: 80px; }
+ +
+ +.mt-5 {
+ +  margin-top: 5px; }
+ +
+ +.mt-10 {
+ +  margin-top: 10px; }
+ +
+ +.mt-15 {
+ +  margin-top: 15px; }
+ +
+ +.mt-20 {
+ +  margin-top: 20px; }
+ +
+ +.mt-25 {
+ +  margin-top: 25px; }
+ +
+ +.mt-30 {
+ +  margin-top: 30px; }
+ +
+ +.mt-80 {
+ +  margin-top: 80px; }
+ +
+ +.pd-5 {
+ +  padding: 5px; }
+ +
+ +.pd-10 {
+ +  padding: 10px; }
+ +
+ +.pd-15 {
+ +  padding: 15px; }
+ +
+ +.pd-20 {
+ +  padding: 20px; }
+ +
+ +.pd-25 {
+ +  padding: 25px; }
+ +
+ +.pd-30 {
+ +  padding: 30px; }
+ +
+ +.pd-80 {
+ +  padding: 80px; }
+ +
+ +.pd-btm-5 {
+ +  padding-bottom: 5px; }
+ +
+ +.pd-btm-10 {
+ +  padding-bottom: 10px; }
+ +
+ +.pd-btm-15 {
+ +  padding-bottom: 15px; }
+ +
+ +.pd-btm-20 {
+ +  padding-bottom: 20px; }
+ +
+ +.pd-btm-25 {
+ +  padding-bottom: 25px; }
+ +
+ +.pd-btm-30 {
+ +  padding-bottom: 30px; }
+ +
+ +.pd-btm-80 {
+ +  padding-bottom: 80px; }
+ +
+ +.pd-top-5 {
+ +  padding-top: 5px; }
+ +
+ +.pd-top-10 {
+ +  padding-top: 10px; }
+ +
+ +.pd-top-15 {
+ +  padding-top: 15px; }
+ +
+ +.pd-top-20 {
+ +  padding-top: 20px; }
+ +
+ +.pd-top-25 {
+ +  padding-top: 25px; }
+ +
+ +.pd-top-30 {
+ +  padding-top: 30px; }
+ +
+ +.pd-top-80 {
+ +  padding-top: 80px; }
+ +
+ +.text-center {
+ +  text-align: center; }
+ +
+ +.half-width {
+ +  width: 50%; }
+ +
+ +.inline-block {
+ +  display: inline-block; }
+ +
+ +.list-inline {
+ +  list-style: none; }
+ +  .list-inline--simple-list li {
+ +    margin-right: 10px;
+ +    padding: 4px; }
+ +  .list-inline li {
+ +    display: inline-block; }
+ +
+ +.text-capitalize {
+ +  text-transform: uppercase; }
+ +
+ +.list-unstyled {
+ +  margin: 0;
+ +  padding: 0; }
+ +
+ +.br-r {
+ +  border-right: 1px solid #d0d6dc; }
+ +
+ +.br-l {
+ +  border-left: 1px solid #d0d6dc; }
+ +
+ +.widget {
+ +  padding: 20px; }
+ +  .widget__header {
+ +    padding: 20px; }
+ +    .widget__header h1 {
+ +      color: #fff; }
+ +  .widget__content {
+ +    padding: 20px; }
+ +
+ +.help-topics {
+ +  background: #a4c416; }
+ +  .help-topics__article-small-item {
+ +    padding: 15px 0; }
+ +  .help-topics__link {
+ +    border: 2px solid #d0d6dc;
+ +    border-radius: 5px;
+ +    color: inherit;
+ +    display: block;
+ +    margin-bottom: 10px;
+ +    padding: 10px;
+ +    text-decoration: none; }
+ +  .help-topics .help-card {
+ +    border-right: 1px solid #d0d6dc;
+ +    border-top: 1px solid #d0d6dc;
+ +    padding: 20px; }
+ +    .help-topics .help-card:last-child {
+ +      border-right: 1px solid #d0d6dc; }
+ +    .help-topics .help-card:first-child {
+ +      border-left: 1px solid #d0d6dc; }
+ +
+ +.help-contacts__column {
+ +  border-top: 1px solid #d0d6dc;
+ +  padding: 0 40px 40px; }
+ +  .help-contacts__column:first-child {
+ +    padding-bottom: 40px;
+ +    padding-left: 0; }
+ +
+ +.help-contacts.widget {
+ +  padding-bottom: 0; }
+ +
+ +body {
+ +  font-size: 16px; }
+ +
+ +.container {
+ +  margin: 0 auto;
+ +  width: 1140px; }
+ +
+ +.cards-boxes {
+ +  background: #d0d6dc;
+ +  padding: 20px; }
+ +  .cards-boxes__item {
+ +    background: #fff;
+ +    margin-bottom: 20px;
+ +    padding: 20px; }
+ +
+ +.visible-xs {
+ +  display: none; }
+ +  @media (max-width: 425px) {
+ +    .visible-xs {
+ +      display: block; } }
+7  css/main.css.map
+Diff suppressed. Click to show.
+33  gulpfile.js
+@@ -0,0 +1,33 @@
+ +'use strict' ;
+ +var gulp = require('gulp'),
+ +    sassLint = require('gulp-sass-lint'),
+ +    sass = require('gulp-sass');
+ +
+ +gulp.task("sass-lint", function() {
+ +  gulp.src(['./scss/**/*.s+(a|c)ss','!scss/_normalize.scss'])
+ +    .pipe(sassLint({
+ +      options: {
+ +        formatter: 'stylish'
+ +      },
+ +      rules: {
+ +        'class-name-format': {
+ +          'convention': 'hyphenatedbem'
+ +        }
+ +      }
+ +    }))
+ +    .pipe(sassLint.format())
+ +    .pipe(sassLint.failOnError())
+ +});
+ +
+ +gulp.task('sass', function () {
+ +  return gulp.src('./scss/main.scss')
+ +    .pipe(sass.sync().on('error', sass.logError))
+ +    .pipe(gulp.dest('./css'));
+ +});
+ +
+ +gulp.task('sass:watch', function () {
+ +  gulp.watch('./scss/**/*.scss', ['sass','sass-lint']);
+ +});
+ +
+ +// Default task
+ +gulp.task('default', ['sass:watch']);
