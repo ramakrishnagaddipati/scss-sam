@@ -1,0 +1,13 @@
+.widget {
+  @include element('header') {
+    padding: 20px;
+
+    h1 {
+      color: $color-clean;
+    }
+  }
+  @include element('content') {
+    padding: 20px;
+  }
+  padding: 20px;
+}

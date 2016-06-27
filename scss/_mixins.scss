@@ -1,0 +1,54 @@
+//BEM modifier
+@import 'bem';
+
+//Mixins
+@mixin generate-margin {
+  @each $space in $spaceamounts {
+    .m-#{$space} {
+      margin: #{$space}px;
+    }
+  }
+}
+@mixin generate-margin-bottom {
+  @each $space in $spaceamounts {
+    .mb-#{$space} {
+      margin-bottom: #{$space}px;
+    }
+  }
+}
+@mixin generate-margin-right {
+  @each $space in $spaceamounts {
+    .mr-#{$space} {
+      margin-right: #{$space}px;
+    }
+  }
+}
+@mixin generate-margin-top {
+  @each $space in $spaceamounts {
+    .mt-#{$space} {
+      margin-top: #{$space}px;
+    }
+  }
+}
+
+@mixin generate-padding {
+  @each $space in $spaceamounts {
+    .pd-#{$space} {
+      padding: #{$space}px;
+    }
+  }
+}
+@mixin generate-padding-top {
+  @each $space in $spaceamounts {
+    .pd-top-#{$space} {
+      padding-top: #{$space}px;
+    }
+  }
+}
+@mixin generate-padding-bottom {
+  @each $space in $spaceamounts {
+    .pd-btm-#{$space} {
+      padding-bottom: #{$space}px;
+    }
+  }
+}

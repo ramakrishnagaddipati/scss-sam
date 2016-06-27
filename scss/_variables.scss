@@ -1,0 +1,17 @@
+//Colors
+$color-primary-light: #d0d6dc !default;
+$color-primary: #a4c416 !default;
+$color-danger: rgb(255, 166, 166) !default;
+$color-clean: #fff;
+
+//Helper Margins;
+$margin-sm: 10px;
+
+//Values for generating variable helper classes for margin and paddings;
+$spaceamounts: (5, 10, 15, 20, 25, 30, 80);
+
+//container width
+$container-width: 1140px;
+
+//button
+$button-padding: 6px 12px;

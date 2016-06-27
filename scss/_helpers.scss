@@ -1,0 +1,55 @@
+//generate helper margin
+@include generate-margin;
+@include generate-margin-bottom;
+@include generate-margin-right;
+@include generate-margin-top;
+
+//generate helper paddings
+@include generate-padding;
+@include generate-padding-bottom;
+@include generate-padding-top;
+
+
+//text helpers
+.text-center {
+  text-align: center;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.list-inline {
+  @include modifier(simple-list) {
+    li {
+      margin-right: 10px;
+      padding: 4px;
+    }
+  }
+  list-style: none;
+
+  li {
+    display: inline-block;
+  }
+}
+
+.text-capitalize {
+  text-transform: uppercase;
+}
+
+.list-unstyled {
+  margin: 0;
+  padding: 0;
+}
+
+.br-r {
+  border-right: 1px solid $color-primary-light;
+}
+
+.br-l {
+  border-left: 1px solid $color-primary-light;
+}

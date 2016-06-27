@@ -1,0 +1,29 @@
+.card--btn {
+  bottom: 30px;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+.btn {
+  @include modifier('default') {
+    background: $color-primary-light;
+  }
+
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: inherit;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  margin: 10px 0;
+  padding: $button-padding;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
